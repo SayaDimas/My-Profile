@@ -123,11 +123,6 @@
   }
 }
 
-/* SVG Gradient Definition */
-svg defs {
-  display: none;
-}
-
 @media (max-width: 768px) {
   .background-blob {
     filter: blur(60px);

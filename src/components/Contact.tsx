@@ -59,7 +59,7 @@ export default function Contact() {
             </div>
             <div className="info-item">
               <h3>Location</h3>
-              <p>Jakarta, Indonesia</p>
+              <p>Surabaya, Indonesia</p>
             </div>
           </div>
 
