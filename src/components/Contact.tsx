@@ -51,11 +51,11 @@ export default function Contact() {
           <div className="contact-info">
             <div className="info-item">
               <h3>Email</h3>
-              <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
+              <p><a href="mailto:dimasrifkinuramadani@gmail.com">dimasrifkinuramadani@gmail.com</a></p>
             </div>
             <div className="info-item">
               <h3>Phone</h3>
-              <p><a href="tel:+62xxxx">+62 (XXX) XXX-XXXX</a></p>
+              <p><a href="tel:+6285849229138">+62 85849229138</a></p>
             </div>
             <div className="info-item">
               <h3>Location</h3>
