@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import '../styles/Portfolio.css';
 import '../styles/ScrollReveal.css';
@@ -17,6 +18,7 @@ type Category = 'Website' | 'Mobile Apps' | 'Design' | 'Others';
 
 export default function Portfolio() {
   const { ref, isVisible } = useScrollReveal();
+  const [showPopup, setShowPopup] = useState(false);
   const projects: Project[] = [
     {
       id: 1,
@@ -142,13 +144,25 @@ export default function Portfolio() {
                         ))}
                       </div>
                       <div className="card-links">
-                        <a href={project.link} target="_blank" rel="noopener noreferrer" className="link-btn live">
+                        <button 
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setShowPopup(true);
+                          }} 
+                          className="link-btn live"
+                        >
                           Live Demo
-                        </a>
+                        </button>
                         {project.github && (
-                          <a href={project.github} target="_blank" rel="noopener noreferrer" className="link-btn github">
+                          <button 
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setShowPopup(true);
+                            }} 
+                            className="link-btn github"
+                          >
                             GitHub
-                          </a>
+                          </button>
                         )}
                       </div>
                     </div>
@@ -158,6 +172,35 @@ export default function Portfolio() {
             </div>
           );
         })}
+
+        {/* Popup Modal */}
+        {showPopup && (
+          <div className="popup-overlay" onClick={() => setShowPopup(false)}>
+            <div className="popup-modal" onClick={(e) => e.stopPropagation()}>
+              <div className="popup-header">
+                <h3>⏳ Dalam Pengerjaan</h3>
+                <button 
+                  className="popup-close" 
+                  onClick={() => setShowPopup(false)}
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="popup-body">
+                <p>Fitur ini masih dalam tahap pengerjaan dan akan segera tersedia.</p>
+                <p>Terima kasih atas kesabaran Anda!</p>
+              </div>
+              <div className="popup-footer">
+                <button 
+                  className="popup-btn-close"
+                  onClick={() => setShowPopup(false)}
+                >
+                  Tutup
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

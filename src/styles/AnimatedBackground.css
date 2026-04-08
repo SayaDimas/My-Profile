@@ -21,7 +21,7 @@
 .blob-1 {
   width: 400px;
   height: 400px;
-  background: linear-gradient(45deg, #00d4ff, #0084ff);
+  background: linear-gradient(45deg, #6B9E4C, #3D5C2A);
   top: -100px;
   left: -100px;
   animation: float 20s infinite ease-in-out;
@@ -30,7 +30,7 @@
 .blob-2 {
   width: 350px;
   height: 350px;
-  background: linear-gradient(135deg, #0084ff, #00d4ff);
+  background: linear-gradient(135deg, #3D5C2A, #6B9E4C);
   bottom: 50px;
   right: 50px;
   animation: float 25s infinite ease-in-out reverse;
@@ -39,7 +39,7 @@
 .blob-3 {
   width: 300px;
   height: 300px;
-  background: linear-gradient(45deg, #00d4ff, #1a1a2e);
+  background: linear-gradient(45deg, #FFD6D6, #F4FBF6);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -69,7 +69,7 @@
 }
 
 .particle {
-  fill: #00d4ff;
+  fill: #6B9E4C;
   animation: pulse-particle 3s infinite ease-in-out;
 }
 
@@ -120,6 +120,87 @@
   50% {
     stroke-dasharray: 500, 1000;
     opacity: 0.6;
+  }
+}
+
+/* Falling Leaves Animation */
+.falling-leaves {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.leaf {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  opacity: 0.8;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.leaf-1 {
+  left: 10%;
+  animation: fall 10s linear infinite, sway 2s ease-in-out infinite;
+}
+
+.leaf-2 {
+  left: 20%;
+  animation: fall 12s linear infinite 2s, sway 2.5s ease-in-out infinite 1s;
+}
+
+.leaf-3 {
+  left: 35%;
+  animation: fall 14s linear infinite 1s, sway 3s ease-in-out infinite 2s;
+}
+
+.leaf-4 {
+  left: 50%;
+  animation: fall 11s linear infinite 3s, sway 2.2s ease-in-out infinite 0.5s;
+}
+
+.leaf-5 {
+  left: 70%;
+  animation: fall 13s linear infinite 1.5s, sway 2.8s ease-in-out infinite 1.5s;
+}
+
+.leaf-6 {
+  left: 85%;
+  animation: fall 15s linear infinite 2.5s, sway 3.2s ease-in-out infinite 2.5s;
+}
+
+@keyframes fall {
+  from {
+    top: -50px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  to {
+    top: 100vh;
+    opacity: 0;
+  }
+}
+
+@keyframes sway {
+  0%, 100% {
+    transform: translateX(0) rotateZ(0deg);
+  }
+  25% {
+    transform: translateX(30px) rotateZ(10deg);
+  }
+  50% {
+    transform: translateX(0) rotateZ(0deg);
+  }
+  75% {
+    transform: translateX(-30px) rotateZ(-10deg);
   }
 }
 
