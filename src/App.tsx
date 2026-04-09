@@ -5,6 +5,7 @@ import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import './App.css'
+import Sertifikat from './components/Sertifikat'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Navbar />
       <Hero />
       <Skills />
+      <Sertifikat />
       <Portfolio />
       <Contact />
       <Footer />
