@@ -63,7 +63,7 @@ export default function Sertifikat() {
           ref={ref}
           className={`sertifikat-container reveal-fade-up ${isVisible ? 'visible' : ''}`}
         >
-          <h2 className="section-title">My Sertifikat</h2>
+          <h2 className="section-title">My Skill and Sertifikat</h2>
           <p className="section-description">
             Berikut adalah teknologi dan tools yang saya gunakan untuk mengembangkan aplikasi web
           </p>
