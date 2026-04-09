@@ -34,7 +34,7 @@ export default function Portfolio() {
       github: 'https://github.com/username/ecommerce',
       category: 'Website',
       images: [
-        'https://example-ecommerce.com',
+        'images/sertifikat/react/react1.jpg',
         'https://example-ecommerce.com/products',
         'https://example-ecommerce.com/dashboard',
       ],

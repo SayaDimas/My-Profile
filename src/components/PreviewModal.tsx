@@ -30,11 +30,18 @@ export default function PreviewModal({ title, link, images, onClose }: Props) {
     return () => window.removeEventListener('keydown', handler);
   }, [onClose, prev, next]);
 
-  const screenshotUrl = (url: string) =>
-    `https://image.thum.io/get/width/640/crop/360/${url}`;
+  const isLocal = (url: string) =>
+    url.startsWith('/') || !url.startsWith('http');
 
-  const thumbUrl = (url: string) =>
-    `https://image.thum.io/get/width/120/crop/80/${url}`;
+  const getImageUrl = (url: string) => {
+    if (isLocal(url)) return url.startsWith('/') ? url : `/${url}`;
+    return `https://image.thum.io/get/width/640/crop/360/${url}`;
+  };
+
+  const getThumbUrl = (url: string) => {
+    if (isLocal(url)) return url.startsWith('/') ? url : `/${url}`;
+    return `https://image.thum.io/get/width/120/crop/80/${url}`;
+  };
 
   return (
     <div
@@ -69,7 +76,7 @@ export default function PreviewModal({ title, link, images, onClose }: Props) {
               )}
               <img
                 key={index}
-                src={screenshotUrl(images[index])}
+                src={getImageUrl(images[index])}
                 alt={`Preview ${title} ${index + 1}`}
                 className="preview-carousel-img"
                 style={{ opacity: imgLoaded ? 1 : 0 }}
@@ -125,7 +132,7 @@ export default function PreviewModal({ title, link, images, onClose }: Props) {
                   onClick={() => setIndex(i)}
                 >
                   <img
-                    src={thumbUrl(url)}
+                    src={getThumbUrl(url)}
                     alt={`Thumbnail ${i + 1}`}
                     onError={e => {
                       (e.target as HTMLImageElement).style.display = 'none';

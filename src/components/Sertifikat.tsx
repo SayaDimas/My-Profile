@@ -22,7 +22,7 @@ export default function Sertifikat() {
     {
       category: 'Frontend',
       items: [
-        { name: 'React', images: ['/certificates/react-1.jpg', '/certificates/react-2.jpg'] },
+        { name: 'React', images: ['images/sertifikat/react/react1.jpg', 'images/sertifikat/react/react2.jpg'] },
         { name: 'TypeScript', images: ['/certificates/typescript-1.jpg'] },
         { name: 'CSS3', images: [] },
         { name: 'HTML5', images: [] },
