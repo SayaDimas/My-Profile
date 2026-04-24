@@ -1,5 +1,5 @@
 import { useTypewriter } from '../hooks/useTypewriter';
-import AnimatedBackground from './AnimatedBackground';
+import HeroForestScene from './three/HeroForestScene';
 import '../styles/Hero.css';
 
 export default function Hero() {
@@ -21,9 +21,9 @@ export default function Hero() {
 
   return (
     <section id="home" className="hero">
-      <AnimatedBackground />
       <div className="hero-container">
         <div className="hero-content">
+          <div className="hero-badge">🌿 Full Stack Developer</div>
           <h1 className="hero-title">
             <span className="typewriter-text">{displayText}</span>
             <span className={`cursor ${isComplete ? 'hidden' : ''}`}></span>
@@ -33,17 +33,26 @@ export default function Hero() {
             Saya memiliki pengalaman 2+ tahun dalam pengembangan aplikasi full-stack (Web & Mobile) menggunakan Laravel dan React Native. Terbiasa membangun website dan mobile apps dengan fokus pada backend, integrasi frontend, dan DevOps. Memiliki kemampuan analisis yang baik, terstruktur, dan berorientasi pada hasil.
           </p>
           <div className="hero-buttons">
-            <button className="btn btn-primary">View My Work</button>
-            <button className="btn btn-secondary">Contact Me</button>
+            <a href="#portfolio" className="btn btn-primary">
+              <span className="btn-icon">🍃</span>
+              View My Work
+            </a>
+            <a href="#contact" className="btn btn-secondary">
+              <span className="btn-icon">✉️</span>
+              Contact Me
+            </a>
           </div>
         </div>
         <div className="hero-image">
-          <div className="profile-placeholder">
-            <img 
-              src={profileImageUrl}
-              alt="Profile"
-              className="profile-image"
-            />
+          <div className="profile-wrapper">
+            <HeroForestScene />
+            <div className="profile-placeholder">
+              <img 
+                src={profileImageUrl}
+                alt="Dimas Rifki Nuramadani - Full Stack Developer"
+                className="profile-image"
+              />
+            </div>
           </div>
         </div>
       </div>

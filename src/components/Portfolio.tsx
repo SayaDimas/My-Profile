@@ -4,6 +4,7 @@ import '../styles/Portfolio.css';
 import '../styles/ScrollReveal.css';
 import PreviewModal from '../components/PreviewModal';
 import '../styles/PreviewModal.css';
+import NatureCard3D from './three/NatureCard3D';
 
 interface Project {
   id: number;
@@ -26,12 +27,12 @@ export default function Portfolio() {
   const projects: Project[] = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'Platform e-commerce lengkap dengan fitur shopping cart, payment gateway, dan admin dashboard untuk mengelola produk.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+      title: 'Pujasera',
+      description: 'Pujasera adalah tempat makan yang memiliki banyak tenant, aplikasi ini masih pada tahap pengembangan.',
+      technologies: ['React', 'laravel', 'Node.js', 'Mysql', 'API'],
       image: '🛍️',
       link: 'https://example-ecommerce.com',
-      github: 'https://github.com/username/ecommerce',
+      github: 'https://github.com/SayaDimas/Pujasera.git',
       category: 'Website',
       images: [
         'images/sertifikat/react/react1.jpg',
@@ -46,8 +47,8 @@ export default function Portfolio() {
       technologies: ['React Native', 'Firebase', 'Expo'],
       image: '✓',
       link: 'https://example-tasks.com',
-      github: 'https://github.com/username/tasks',
-      category: 'Mobile Apps',
+      github: 'https://github.com/SayaDimas/Management-Project.git',
+      category: 'Website',
       images: [
         'https://example-tasks.com',
         'https://example-tasks.com/board',
@@ -166,10 +167,15 @@ export default function Portfolio() {
 
             return (
               <div key={category} className="portfolio-category">
-                <h3 className="category-title">{category}</h3>
+                <h3 className="category-title">
+                  <span className="category-icon">
+                    {category === 'Website' ? '🌐' : category === 'Mobile Apps' ? '📱' : category === 'Design' ? '🎨' : '🔧'}
+                  </span>
+                  {category}
+                </h3>
                 <div className={`portfolio-grid reveal-grid ${isVisible ? 'visible' : ''}`}>
                   {categoryProjects.map((project) => (
-                    <div key={project.id} className="portfolio-card">
+                    <NatureCard3D key={project.id} className="portfolio-card">
                       <div className="card-image">
                         <span className="image-emoji">{project.image}</span>
                       </div>
@@ -202,7 +208,7 @@ export default function Portfolio() {
                           )}
                         </div>
                       </div>
-                    </div>
+                    </NatureCard3D>
                   ))}
                 </div>
               </div>

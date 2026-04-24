@@ -21,7 +21,8 @@ export default function Contact() {
 
           <div className="contact-wrapper success-message">
             <div className="success-content">
-              <h3>✅ Pesan Terkirim!</h3>
+              <div className="success-icon">🌿</div>
+              <h3>Pesan Terkirim!</h3>
               <p>Terima kasih telah mengirimkan pesan. Saya akan merespons Anda secepat mungkin.</p>
               <button 
                 onClick={() => window.location.reload()} 
@@ -50,14 +51,17 @@ export default function Contact() {
         <div className={`contact-wrapper reveal-stagger ${isVisible ? 'visible' : ''}`}>
           <div className="contact-info">
             <div className="info-item">
+              <div className="info-icon">📧</div>
               <h3>Email</h3>
               <p><a href="mailto:dimasrifkinuramadani@gmail.com">dimasrifkinuramadani@gmail.com</a></p>
             </div>
             <div className="info-item">
+              <div className="info-icon">📞</div>
               <h3>Phone</h3>
               <p><a href="tel:+6285849229138">+62 85849229138</a></p>
             </div>
             <div className="info-item">
+              <div className="info-icon">📍</div>
               <h3>Location</h3>
               <p>Surabaya, Indonesia</p>
             </div>
@@ -117,7 +121,7 @@ export default function Contact() {
               className="submit-btn"
               disabled={state.submitting}
             >
-              {state.submitting ? 'Mengirim...' : 'Kirim Pesan'}
+              {state.submitting ? '🍃 Mengirim...' : '🌿 Kirim Pesan'}
             </button>
           </form>
         </div>

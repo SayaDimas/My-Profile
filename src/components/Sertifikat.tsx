@@ -11,6 +11,7 @@ interface CertItem {
 
 interface sertifikatGroup {
   category: string;
+  icon: string;
   items: CertItem[];
 }
 
@@ -21,6 +22,7 @@ export default function Sertifikat() {
   const sertifikatGroups: sertifikatGroup[] = [
     {
       category: 'Frontend',
+      icon: '🌿',
       items: [
         { name: 'React', images: ['images/sertifikat/react/react1.jpg', 'images/sertifikat/react/react2.jpg'] },
         { name: 'TypeScript', images: ['/certificates/typescript-1.jpg'] },
@@ -33,6 +35,7 @@ export default function Sertifikat() {
     },
     {
       category: 'Backend',
+      icon: '🌳',
       items: [
         { name: 'Node.js', images: ['/certificates/nodejs-1.jpg'] },
         { name: 'PostgreSQL', images: [] },
@@ -44,6 +47,7 @@ export default function Sertifikat() {
     },
     {
       category: 'Tools & Others',
+      icon: '🍃',
       items: [
         { name: 'Git', images: [] },
         { name: 'GitHub', images: ['/certificates/github-1.jpg'] },
@@ -71,7 +75,10 @@ export default function Sertifikat() {
           <div className={`sertifikat-grid reveal-stagger ${isVisible ? 'visible' : ''}`}>
             {sertifikatGroups.map((group, index) => (
               <div key={index} className="sertifikat-card">
-                <h3 className="sertifikat-category">{group.category}</h3>
+                <div className="sertifikat-card-header">
+                  <span className="sertifikat-icon">{group.icon}</span>
+                  <h3 className="sertifikat-category">{group.category}</h3>
+                </div>
                 <div className="sertifikat-items">
                   {group.items.map((item, i) => (
                     <span

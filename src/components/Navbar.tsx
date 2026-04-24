@@ -1,29 +1,40 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/Navbar.css';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleScroll = (id: string) => {
+  const handleScrollTo = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
     setIsOpen(false);
   };
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-logo">
+          <span className="logo-icon">🌿</span>
           <span className="logo-text">MyProfile</span>
         </div>
 
         <button 
           className={`hamburger ${isOpen ? 'active' : ''}`}
           onClick={toggleMenu}
+          aria-label="Toggle menu"
         >
           <span></span>
           <span></span>
@@ -32,22 +43,22 @@ export default function Navbar() {
 
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
           <li className="nav-item">
-            <button onClick={() => handleScroll('home')} className="nav-link">
+            <button onClick={() => handleScrollTo('home')} className="nav-link">
               Home
             </button>
           </li>
           <li className="nav-item">
-            <button onClick={() => handleScroll('skills')} className="nav-link">
+            <button onClick={() => handleScrollTo('sertifikat')} className="nav-link">
               Skills
             </button>
           </li>
           <li className="nav-item">
-            <button onClick={() => handleScroll('portfolio')} className="nav-link">
+            <button onClick={() => handleScrollTo('portfolio')} className="nav-link">
               Portfolio
             </button>
           </li>
           <li className="nav-item">
-            <button onClick={() => handleScroll('contact')} className="nav-link">
+            <button onClick={() => handleScrollTo('contact')} className="nav-link">
               Contact
             </button>
           </li>

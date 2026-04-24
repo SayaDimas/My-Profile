@@ -1,21 +1,24 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-// import Skills from './components/Skills'
 import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import './App.css'
 import Sertifikat from './components/Sertifikat'
+import ForestBackground from './components/three/ForestBackground'
+import './App.css'
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Hero />
-      <Sertifikat />
-      <Portfolio />
-      <Contact />
-      <Footer />
+      <ForestBackground />
+      <div className="app-content">
+        <Navbar />
+        <Hero />
+        <Sertifikat />
+        <Portfolio />
+        <Contact />
+        <Footer />
+      </div>
     </>
   )
 }
